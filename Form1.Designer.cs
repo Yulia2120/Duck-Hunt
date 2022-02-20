@@ -1,4 +1,6 @@
 ﻿
+using System.Windows.Forms;
+
 namespace Duck_Hunt
 {
     partial class Form1
@@ -7,6 +9,7 @@ namespace Duck_Hunt
         /// Обязательная переменная конструктора.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
+        private MouseEventHandler MouseEvent;
 
         /// <summary>
         /// Освободить все используемые ресурсы.
@@ -35,10 +38,16 @@ namespace Duck_Hunt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(525, 450);
+            this.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.ForeColor = System.Drawing.Color.Black;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Duck Hunt";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.ResumeLayout(false);
 
         }
