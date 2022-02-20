@@ -48,5 +48,5 @@ namespace Duck_Hunt
       
     }
 }
-//Target target1 = new Target(200, 200, 20, 20, Color.Black);
-//target1.Draw(e.Graphics);
+   //Target target1 = new Target(200, 200, 20, 20, Color.Black);
+            //target1.Draw(e.Graphics);
