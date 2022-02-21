@@ -24,7 +24,7 @@ namespace Duck_Hunt
        // RectangleF rect = new RectangleF();
         //Duck duck = new Duck(200, 200);
         int speed = 12;
-       
+        bool leftMove, topMove;
 
 
 
@@ -32,10 +32,10 @@ namespace Duck_Hunt
         {
             InitializeComponent();
             g = CreateGraphics();
-         
+          
             MouseMove += Form1_MouseMove;
             MouseDown += Form1_MouseDown;
-           
+          
 
         }
   
@@ -66,15 +66,40 @@ namespace Duck_Hunt
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            var k = pictureBox1.Location.X;
-            k += speed;
-            if (k < 0 || k + 300 > 750)
+            if(leftMove == true)
             {
-                speed = -speed;
+                pictureBox1.Left += 10;
             }
-          
+            if(leftMove == false)
+            {
+                pictureBox1.Left -= 10;
+            }
+            if(topMove == true)
+            {
+                pictureBox1.Top += 10;
+            }
+            if(topMove == false)
+            {
+                pictureBox1.Top -= 10;
+            }
+           if(pictureBox1.Left <= ClientRectangle.Left)
+            {
+                leftMove = true;
+            }
+           if(pictureBox1.Right >= ClientRectangle.Right)
+            {
+                leftMove = false;
+            }
+           if(pictureBox1.Top <= ClientRectangle.Top)
+            {
+                topMove = true;
+            }
+           if(pictureBox1.Top >= ClientRectangle.Top)
+            {
+                topMove = false;
+            }
         }
 
-
+         //if (pictureBox1.Bounds.IntersectsWith(item.Bounds))
     }
 }
