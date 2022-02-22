@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using System.Reflection;
+
 
 namespace Duck_Hunt
 {
@@ -18,15 +18,13 @@ namespace Duck_Hunt
         Graphics g;
         Pen pen = new Pen(Color.Black, 2);
         Point mouse_location = new Point();
-        // Gifduck = new Image.FromFile("GjA.gif");
+
         string[] textR = { "100", "200", "500", "1000","700", "800" };
         Font font = new Font("Arial", 14);
         SolidBrush exbrush = new SolidBrush(Color.Red);
-       // RectangleF rect = new RectangleF();
-        //Duck duck = new Duck(200, 200);
         int speed = 5;
         int kill;
-       // bool leftMove, topMove;
+      
      
 
 
@@ -34,7 +32,7 @@ namespace Duck_Hunt
         {
             InitializeComponent();
             g = CreateGraphics();
-           
+
             MouseMove += Form1_MouseMove;
             MouseDown += Form1_MouseDown;
           
@@ -62,8 +60,8 @@ namespace Duck_Hunt
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
             int index = new Random().Next(0, textR.Length);
-             g.DrawString(textR[index], font, exbrush, mouse_location.X-50, mouse_location.Y-50);
-             
+            g.DrawString(textR[index], font, exbrush, mouse_location.X-50, mouse_location.Y-50);
+            Sound();
         }
      
         private void Birds()
@@ -72,38 +70,41 @@ namespace Duck_Hunt
             {
                 p_1.Left = ClientSize.Width;
                 p_1.Image = Properties.Resources.bird_1;
+                Sound();
             }
             if (p_2.Left < 0)
             {
                 p_2.Left = ClientSize.Width;
                 p_2.Image = Properties.Resources.bird_2;
+                Sound();
             }
             if (p_3.Left < 0)
             {
                 p_3.Left = ClientSize.Width;
                 p_3.Image = Properties.Resources.bird_3;
+                Sound();
             }
             p_1.Left -= speed;
             p_2.Left -= speed;
             p_3.Left -= speed;
         }
 
-       
+       private void Sound()
+        {
+            System.Media.SoundPlayer sound = new System.Media.SoundPlayer(@"D:\Desktop\Git\Duck Hunt\Resources\Sound_1.wav");
+            sound.Play();
+        }
 
         private void p_1_Click(object sender, EventArgs e)
         {
             kill++;
             l_kill.Text = "Killed: " + kill;
             p_1.Image = Properties.Resources.kill;
-        
-
-
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             Birds();
-           
         }
 
         private void p_2_Click(object sender, EventArgs e)

@@ -109,5 +109,8 @@
   <ItemGroup>
     <None Include="Resources\kill %282%29.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sound_1.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
