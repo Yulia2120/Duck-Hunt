@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Reflection;
 
 namespace Duck_Hunt
 {
@@ -23,16 +24,17 @@ namespace Duck_Hunt
         SolidBrush exbrush = new SolidBrush(Color.Red);
        // RectangleF rect = new RectangleF();
         //Duck duck = new Duck(200, 200);
-        int speed = 12;
-        bool leftMove, topMove;
-
+        int speed = 5;
+        int kill;
+       // bool leftMove, topMove;
+     
 
 
         public Form1()
         {
             InitializeComponent();
             g = CreateGraphics();
-          
+           
             MouseMove += Form1_MouseMove;
             MouseDown += Form1_MouseDown;
           
@@ -63,43 +65,61 @@ namespace Duck_Hunt
              g.DrawString(textR[index], font, exbrush, mouse_location.X-50, mouse_location.Y-50);
              
         }
+     
+        private void Birds()
+        {
+            if(p_1.Left < 0)
+            {
+                p_1.Left = ClientSize.Width;
+                p_1.Image = Properties.Resources.bird_1;
+            }
+            if (p_2.Left < 0)
+            {
+                p_2.Left = ClientSize.Width;
+                p_2.Image = Properties.Resources.bird_2;
+            }
+            if (p_3.Left < 0)
+            {
+                p_3.Left = ClientSize.Width;
+                p_3.Image = Properties.Resources.bird_3;
+            }
+            p_1.Left -= speed;
+            p_2.Left -= speed;
+            p_3.Left -= speed;
+        }
+
+       
+
+        private void p_1_Click(object sender, EventArgs e)
+        {
+            kill++;
+            l_kill.Text = "Killed: " + kill;
+            p_1.Image = Properties.Resources.kill;
+        
+
+
+        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if(leftMove == true)
-            {
-                pictureBox1.Left += 10;
-            }
-            if(leftMove == false)
-            {
-                pictureBox1.Left -= 10;
-            }
-            if(topMove == true)
-            {
-                pictureBox1.Top += 10;
-            }
-            if(topMove == false)
-            {
-                pictureBox1.Top -= 10;
-            }
-           if(pictureBox1.Left <= ClientRectangle.Left)
-            {
-                leftMove = true;
-            }
-           if(pictureBox1.Right >= ClientRectangle.Right)
-            {
-                leftMove = false;
-            }
-           if(pictureBox1.Top <= ClientRectangle.Top)
-            {
-                topMove = true;
-            }
-           if(pictureBox1.Top >= ClientRectangle.Top)
-            {
-                topMove = false;
-            }
+            Birds();
+           
         }
 
-         //if (pictureBox1.Bounds.IntersectsWith(item.Bounds))
+        private void p_2_Click(object sender, EventArgs e)
+        {
+            kill++;
+            l_kill.Text = "Killed: " + kill;
+            p_2.Image = Properties.Resources.kill;
+        }
+
+        private void p_3_Click(object sender, EventArgs e)
+        {
+            kill++;
+            l_kill.Text = "Killed: " + kill;
+            p_3.Image = Properties.Resources.kill;
+        }
+
+        //if (pictureBox1.Bounds.IntersectsWith(item.Bounds))
     }
 }

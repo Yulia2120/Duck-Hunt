@@ -83,19 +83,31 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\4.gif" />
+    <None Include="Resources\11.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\12.gif" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\5.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\8.gif" />
+    <None Include="Resources\2.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\11.gif" />
+    <None Include="Resources\_1.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\7.gif" />
+    <None Include="Resources\cloud.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kill.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kill1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kill %282%29.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
