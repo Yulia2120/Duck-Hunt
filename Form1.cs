@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
+using System.Threading;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
@@ -19,11 +19,11 @@ namespace Duck_Hunt
         Pen pen = new Pen(Color.Black, 2);
         Point mouse_location = new Point();
 
-        string[] textR = { "100", "200", "500", "1000","700", "800" };
+        string[] textR = { "Wow!", "Killed!", "Whoo!", "Killed!" };
         Font font = new Font("Arial", 14);
         SolidBrush exbrush = new SolidBrush(Color.Red);
         int speed = 5;
-        int kill;
+        int kill, missed;
       
      
 
@@ -34,7 +34,7 @@ namespace Duck_Hunt
             g = CreateGraphics();
 
             MouseMove += Form1_MouseMove;
-            MouseDown += Form1_MouseDown;
+            l_over.Visible = false;
           
 
         }
@@ -54,14 +54,14 @@ namespace Duck_Hunt
             g.DrawEllipse(pen,
             mouse_location.X - 10, mouse_location.Y - 10, 20, 20);
         }
-
-       
-
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
             int index = new Random().Next(0, textR.Length);
             g.DrawString(textR[index], font, exbrush, mouse_location.X-50, mouse_location.Y-50);
+           // Thread.Sleep(50);
             Sound();
+            missed++;
+            l_missed.Text = "Missed: " + missed;
         }
      
         private void Birds()
@@ -70,19 +70,19 @@ namespace Duck_Hunt
             {
                 p_1.Left = ClientSize.Width;
                 p_1.Image = Properties.Resources.bird_1;
-                Sound();
+              
             }
             if (p_2.Left < 0)
             {
                 p_2.Left = ClientSize.Width;
                 p_2.Image = Properties.Resources.bird_2;
-                Sound();
+               
             }
             if (p_3.Left < 0)
             {
                 p_3.Left = ClientSize.Width;
                 p_3.Image = Properties.Resources.bird_3;
-                Sound();
+             
             }
             p_1.Left -= speed;
             p_2.Left -= speed;
@@ -93,18 +93,21 @@ namespace Duck_Hunt
         {
             System.Media.SoundPlayer sound = new System.Media.SoundPlayer(@"D:\Desktop\Git\Duck Hunt\Resources\Sound_1.wav");
             sound.Play();
-        }
-
-        private void p_1_Click(object sender, EventArgs e)
-        {
-            kill++;
-            l_kill.Text = "Killed: " + kill;
-            p_1.Image = Properties.Resources.kill;
+           
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             Birds();
+            GameResult();
+          
+        }
+        private void p_1_Click(object sender, EventArgs e)
+        {
+            kill++;
+            l_kill.Text = "Killed: " + kill;
+            p_1.Image = Properties.Resources.kill;
+            Sound();
         }
 
         private void p_2_Click(object sender, EventArgs e)
@@ -112,6 +115,7 @@ namespace Duck_Hunt
             kill++;
             l_kill.Text = "Killed: " + kill;
             p_2.Image = Properties.Resources.kill;
+            Sound();
         }
 
         private void p_3_Click(object sender, EventArgs e)
@@ -119,6 +123,23 @@ namespace Duck_Hunt
             kill++;
             l_kill.Text = "Killed: " + kill;
             p_3.Image = Properties.Resources.kill;
+            Sound();
+        }
+        private void GameResult()
+        {
+            if(l_missed.Text == "Missed: 5")
+            {
+                l_over.Visible = true;
+                timer1.Stop();
+                l_missed.Visible = false;
+                l_kill.Visible = false;
+            }
+            if(l_kill.Text == "Killed: 50")
+            {
+                l_over.Text = "Level Up...";
+                l_over.Visible = true;
+                timer1.Stop();
+            }
         }
 
         //if (pictureBox1.Bounds.IntersectsWith(item.Bounds))
