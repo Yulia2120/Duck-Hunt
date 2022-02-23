@@ -42,6 +42,7 @@ namespace Duck_Hunt
             this.p_3 = new System.Windows.Forms.PictureBox();
             this.p_2 = new System.Windows.Forms.PictureBox();
             this.p_1 = new System.Windows.Forms.PictureBox();
+            this.l_coin = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.p_cloud)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p_3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p_2)).BeginInit();
@@ -68,7 +69,7 @@ namespace Duck_Hunt
             // 
             this.l_missed.AutoSize = true;
             this.l_missed.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.l_missed.Location = new System.Drawing.Point(89, 9);
+            this.l_missed.Location = new System.Drawing.Point(21, 9);
             this.l_missed.Name = "l_missed";
             this.l_missed.Size = new System.Drawing.Size(81, 18);
             this.l_missed.TabIndex = 4;
@@ -132,6 +133,16 @@ namespace Duck_Hunt
             this.p_1.TabStop = false;
             this.p_1.Click += new System.EventHandler(this.p_1_Click);
             // 
+            // l_coin
+            // 
+            this.l_coin.AutoSize = true;
+            this.l_coin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.l_coin.Location = new System.Drawing.Point(542, 9);
+            this.l_coin.Name = "l_coin";
+            this.l_coin.Size = new System.Drawing.Size(62, 18);
+            this.l_coin.TabIndex = 4;
+            this.l_coin.Text = "Coin: 0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -140,19 +151,19 @@ namespace Duck_Hunt
             this.ClientSize = new System.Drawing.Size(633, 475);
             this.Controls.Add(this.l_over);
             this.Controls.Add(this.l_missed);
+            this.Controls.Add(this.l_coin);
             this.Controls.Add(this.l_kill);
             this.Controls.Add(this.p_cloud);
             this.Controls.Add(this.p_3);
             this.Controls.Add(this.p_2);
             this.Controls.Add(this.p_1);
-            this.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Cursor = System.Windows.Forms.Cursors.Cross;
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Duck Hunt";
-          //  this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.p_cloud)).EndInit();
@@ -173,6 +184,7 @@ namespace Duck_Hunt
         private Label l_kill;
         private Label l_missed;
         private Label l_over;
+        private Label l_coin;
     }
 }
 

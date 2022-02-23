@@ -23,7 +23,7 @@ namespace Duck_Hunt
         Font font = new Font("Arial", 14);
         SolidBrush exbrush = new SolidBrush(Color.Red);
         int speed = 5;
-        int kill, missed;
+        int kill, missed, coin;
       
      
 
@@ -61,7 +61,6 @@ namespace Duck_Hunt
         {
             int index = new Random().Next(0, textR.Length);
             g.DrawString(textR[index], font, exbrush, mouse_location.X-50, mouse_location.Y-50);
-           // Thread.Sleep(50);
             Sound();
             missed++;
             l_missed.Text = "Missed: " + missed;
@@ -113,6 +112,8 @@ namespace Duck_Hunt
         {
             kill++;
             l_kill.Text = "Killed: " + kill;
+            coin = kill * 3;
+            l_coin.Text = "Coin: " + coin;
             p_1.Image = Properties.Resources.kill;
             Sound();
         }
@@ -121,6 +122,8 @@ namespace Duck_Hunt
         {
             kill++;
             l_kill.Text = "Killed: " + kill;
+            coin = kill * 3;
+            l_coin.Text = "Coin: " + coin;
             p_2.Image = Properties.Resources.kill;
             Sound();
         }
@@ -129,6 +132,8 @@ namespace Duck_Hunt
         {
             kill++;
             l_kill.Text = "Killed: " + kill;
+            coin = kill * 3;
+            l_coin.Text = "Coin: " + coin;
             p_3.Image = Properties.Resources.kill;
             Sound();
         }

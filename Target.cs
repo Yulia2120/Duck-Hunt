@@ -11,7 +11,7 @@ namespace Duck_Hunt
     {
         float x, y, w, h;
         Pen pen;
-        Point mouse_location;
+        //Point mouse_location;
 
 
         public Target(float x, float y, float w, float h, Color color)
