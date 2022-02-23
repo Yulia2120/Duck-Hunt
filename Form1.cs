@@ -31,6 +31,9 @@ namespace Duck_Hunt
         public Form1()
         {
             InitializeComponent();
+            Bitmap bmp = new Bitmap(Properties.Resources.cursor);
+            Cursor crs = new Cursor(bmp.GetHicon());
+            this.Cursor = crs;
             g = CreateGraphics();
 
             MouseMove += Form1_MouseMove;
@@ -46,14 +49,14 @@ namespace Duck_Hunt
             this.Invalidate();
 
         }
-        private void Form1_Paint(object sender, PaintEventArgs e)
-        {
-            //Target target1 = new Target(200, 200, 20, 20, Color.Black);
-            //target1.Draw(e.Graphics);
+        //private void Form1_Paint(object sender, PaintEventArgs e)
+        //{
+        //    //Target target1 = new Target(200, 200, 20, 20, Color.Black);
+        //    //target1.Draw(e.Graphics);
 
-            g.DrawEllipse(pen,
-            mouse_location.X - 10, mouse_location.Y - 10, 20, 20);
-        }
+        //    g.DrawEllipse(pen,
+        //    mouse_location.X - 10, mouse_location.Y - 10, 20, 20);
+        //}
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
             int index = new Random().Next(0, textR.Length);
@@ -87,9 +90,14 @@ namespace Duck_Hunt
             p_1.Left -= speed;
             p_2.Left -= speed;
             p_3.Left -= speed;
+          
+          //if (p_1.Bounds.IntersectsWith(g.VisibleClipBounds))
+          //  {
+
+          //  }
         }
 
-       private void Sound()
+        private void Sound()
         {
             System.Media.SoundPlayer sound = new System.Media.SoundPlayer(@"D:\Desktop\Git\Duck Hunt\Resources\Sound_1.wav");
             sound.Play();
@@ -100,7 +108,6 @@ namespace Duck_Hunt
         {
             Birds();
             GameResult();
-          
         }
         private void p_1_Click(object sender, EventArgs e)
         {

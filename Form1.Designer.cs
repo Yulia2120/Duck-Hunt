@@ -36,12 +36,12 @@ namespace Duck_Hunt
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.l_kill = new System.Windows.Forms.Label();
+            this.l_missed = new System.Windows.Forms.Label();
+            this.l_over = new System.Windows.Forms.Label();
             this.p_cloud = new System.Windows.Forms.PictureBox();
             this.p_3 = new System.Windows.Forms.PictureBox();
             this.p_2 = new System.Windows.Forms.PictureBox();
             this.p_1 = new System.Windows.Forms.PictureBox();
-            this.l_missed = new System.Windows.Forms.Label();
-            this.l_over = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.p_cloud)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p_3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p_2)).BeginInit();
@@ -63,6 +63,27 @@ namespace Duck_Hunt
             this.l_kill.Size = new System.Drawing.Size(68, 18);
             this.l_kill.TabIndex = 4;
             this.l_kill.Text = "Killed: 0";
+            // 
+            // l_missed
+            // 
+            this.l_missed.AutoSize = true;
+            this.l_missed.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.l_missed.Location = new System.Drawing.Point(89, 9);
+            this.l_missed.Name = "l_missed";
+            this.l_missed.Size = new System.Drawing.Size(81, 18);
+            this.l_missed.TabIndex = 4;
+            this.l_missed.Text = "Missed: 0";
+            // 
+            // l_over
+            // 
+            this.l_over.AutoSize = true;
+            this.l_over.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.l_over.ForeColor = System.Drawing.Color.Red;
+            this.l_over.Location = new System.Drawing.Point(230, 177);
+            this.l_over.Name = "l_over";
+            this.l_over.Size = new System.Drawing.Size(152, 25);
+            this.l_over.TabIndex = 5;
+            this.l_over.Text = "Game - Over!";
             // 
             // p_cloud
             // 
@@ -111,26 +132,6 @@ namespace Duck_Hunt
             this.p_1.TabStop = false;
             this.p_1.Click += new System.EventHandler(this.p_1_Click);
             // 
-            // l_missed
-            // 
-            this.l_missed.AutoSize = true;
-            this.l_missed.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.l_missed.Location = new System.Drawing.Point(89, 9);
-            this.l_missed.Name = "l_missed";
-            this.l_missed.Size = new System.Drawing.Size(81, 18);
-            this.l_missed.TabIndex = 4;
-            this.l_missed.Text = "Missed: 0";
-            // 
-            // l_over
-            // 
-            this.l_over.AutoSize = true;
-            this.l_over.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.l_over.Location = new System.Drawing.Point(234, 135);
-            this.l_over.Name = "l_over";
-            this.l_over.Size = new System.Drawing.Size(152, 25);
-            this.l_over.TabIndex = 5;
-            this.l_over.Text = "Game - Over!";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -144,14 +145,14 @@ namespace Duck_Hunt
             this.Controls.Add(this.p_3);
             this.Controls.Add(this.p_2);
             this.Controls.Add(this.p_1);
-            this.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.Cursor = System.Windows.Forms.Cursors.Default;
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Duck Hunt";
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
+          //  this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.p_cloud)).EndInit();
