@@ -43,6 +43,8 @@ namespace Duck_Hunt
             this.p_2 = new System.Windows.Forms.PictureBox();
             this.p_1 = new System.Windows.Forms.PictureBox();
             this.l_coin = new System.Windows.Forms.Label();
+            this.l_shop = new System.Windows.Forms.Label();
+            this.b_Buy = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.p_cloud)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p_3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p_2)).BeginInit();
@@ -101,7 +103,7 @@ namespace Duck_Hunt
             // 
             this.p_3.BackColor = System.Drawing.Color.Transparent;
             this.p_3.Image = global::Duck_Hunt.Properties.Resources.bird_3;
-            this.p_3.Location = new System.Drawing.Point(255, 12);
+            this.p_3.Location = new System.Drawing.Point(254, 24);
             this.p_3.Name = "p_3";
             this.p_3.Size = new System.Drawing.Size(114, 72);
             this.p_3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -113,7 +115,7 @@ namespace Duck_Hunt
             // 
             this.p_2.BackColor = System.Drawing.Color.Transparent;
             this.p_2.Image = global::Duck_Hunt.Properties.Resources.bird_2;
-            this.p_2.Location = new System.Drawing.Point(482, 82);
+            this.p_2.Location = new System.Drawing.Point(457, 99);
             this.p_2.Name = "p_2";
             this.p_2.Size = new System.Drawing.Size(111, 78);
             this.p_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -143,12 +145,39 @@ namespace Duck_Hunt
             this.l_coin.TabIndex = 4;
             this.l_coin.Text = "Coin: 0";
             // 
+            // l_shop
+            // 
+            this.l_shop.AutoSize = true;
+            this.l_shop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.l_shop.Location = new System.Drawing.Point(441, 34);
+            this.l_shop.Name = "l_shop";
+            this.l_shop.Size = new System.Drawing.Size(173, 30);
+            this.l_shop.TabIndex = 6;
+            this.l_shop.Text = "Telescopic sight: 30 coins\r\n ";
+            // 
+            // b_Buy
+            // 
+            this.b_Buy.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.b_Buy.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.b_Buy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.b_Buy.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.b_Buy.ForeColor = System.Drawing.Color.Red;
+            this.b_Buy.Location = new System.Drawing.Point(498, 69);
+            this.b_Buy.Name = "b_Buy";
+            this.b_Buy.Size = new System.Drawing.Size(75, 23);
+            this.b_Buy.TabIndex = 7;
+            this.b_Buy.Text = "Buy";
+            this.b_Buy.UseVisualStyleBackColor = true;
+            this.b_Buy.Click += new System.EventHandler(this.b_Buy_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(633, 475);
+            this.Controls.Add(this.b_Buy);
+            this.Controls.Add(this.l_shop);
             this.Controls.Add(this.l_over);
             this.Controls.Add(this.l_missed);
             this.Controls.Add(this.l_coin);
@@ -185,6 +214,8 @@ namespace Duck_Hunt
         private Label l_missed;
         private Label l_over;
         private Label l_coin;
+        private Label l_shop;
+        private Button b_Buy;
     }
 }
 
