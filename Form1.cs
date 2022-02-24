@@ -131,30 +131,37 @@ namespace Duck_Hunt
             l_kill.Text = "Killed: " + kill;
             coin = kill * 3;
             l_coin.Text = "Coin: " + coin;
+            if (l_coin.Text == "Coin: 51")
+            {
+                l_shop.Visible = true;
+                b_Buy.Visible = true;
+            }
             p_2.Image = Properties.Resources.kill;
             Sound();
         }
 
-        private void b_Buy_Click(object sender, EventArgs e)
-        {
-            //this.Cursor.Dispose();
-            Bitmap bmp = new Bitmap(Properties.Resources.cursor2a);
-            Cursor crs = new Cursor(bmp.GetHicon());
-            this.Cursor = crs;
-            l_shop.Visible = false;
-            b_Buy.Visible = false;
-
-        }
-
-     
         private void p_3_Click(object sender, EventArgs e)
         {
             kill++;
             l_kill.Text = "Killed: " + kill;
             coin = kill * 3;
             l_coin.Text = "Coin: " + coin;
+            if (l_coin.Text == "Coin: 51")
+            {
+                l_shop.Visible = true;
+                b_Buy.Visible = true;
+            }
             p_3.Image = Properties.Resources.kill;
             Sound();
+        }
+        private void b_Buy_Click(object sender, EventArgs e)
+        {
+            Bitmap bmp = new Bitmap(Properties.Resources.cursor2a);
+            Cursor crs = new Cursor(bmp.GetHicon());
+            this.Cursor = crs;
+            l_shop.Visible = false;
+            b_Buy.Visible = false;
+
         }
         private void GameResult()
         {
