@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Threading;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
 using System.Drawing.Imaging;
 
 namespace Duck_Hunt
@@ -61,8 +53,6 @@ namespace Duck_Hunt
         //}
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
-            int index = new Random().Next(0, textR.Length);
-            g.DrawString(textR[index], font, exbrush, mouse_location.X-50, mouse_location.Y-50);
             Sound();
             missed++;
             l_missed.Text = "Missed: " + missed;
@@ -100,12 +90,10 @@ namespace Duck_Hunt
             sound.Play();
            
         }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             Birds();
             GameResult();
-            MakeScreenshot();
         }
         private void p_1_Click(object sender, EventArgs e)
         {
@@ -118,7 +106,8 @@ namespace Duck_Hunt
                 l_shop.Visible = true;
                 b_Buy.Visible = true;
             }
-           
+            int index = new Random().Next(0, textR.Length);
+            g.DrawString(textR[index], font, exbrush, mouse_location.X - 100, mouse_location.Y - 100);
             p_1.Image = Properties.Resources.kill;
             Sound();
         }
@@ -134,6 +123,8 @@ namespace Duck_Hunt
                 l_shop.Visible = true;
                 b_Buy.Visible = true;
             }
+            int index = new Random().Next(0, textR.Length);
+            g.DrawString(textR[index], font, exbrush, mouse_location.X - 100, mouse_location.Y - 100);
             p_2.Image = Properties.Resources.kill;
             Sound();
         }
@@ -149,7 +140,8 @@ namespace Duck_Hunt
                 l_shop.Visible = true;
                 b_Buy.Visible = true;
             }
-          
+            int index = new Random().Next(0, textR.Length);
+            g.DrawString(textR[index], font, exbrush, mouse_location.X - 100, mouse_location.Y - 100);
             p_3.Image = Properties.Resources.kill;
             Sound();
         }
@@ -169,12 +161,16 @@ namespace Duck_Hunt
             {
                 l_over.Visible = true;
                 timer1.Stop();
+                MakeScreenshot();
+                MessageBox.Show("The result of the game is in the bin. folder.");
             }
             if(l_kill.Text == "Killed: 50")
             {
                 l_over.Text = "Level Up...";
                 l_over.Visible = true;
                 timer1.Stop();
+                MakeScreenshot();
+                MessageBox.Show("The result of the game is in the bin. folder.");
             }
         }
 

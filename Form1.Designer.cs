@@ -81,7 +81,7 @@ namespace Duck_Hunt
             this.l_over.AutoSize = true;
             this.l_over.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.l_over.ForeColor = System.Drawing.Color.Red;
-            this.l_over.Location = new System.Drawing.Point(230, 177);
+            this.l_over.Location = new System.Drawing.Point(234, 115);
             this.l_over.Name = "l_over";
             this.l_over.Size = new System.Drawing.Size(152, 25);
             this.l_over.TabIndex = 5;
@@ -137,7 +137,7 @@ namespace Duck_Hunt
             // 
             this.p_3.BackColor = System.Drawing.Color.Transparent;
             this.p_3.Image = global::Duck_Hunt.Properties.Resources.bird_3;
-            this.p_3.Location = new System.Drawing.Point(254, 24);
+            this.p_3.Location = new System.Drawing.Point(239, 34);
             this.p_3.Name = "p_3";
             this.p_3.Size = new System.Drawing.Size(114, 72);
             this.p_3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
