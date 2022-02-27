@@ -101,15 +101,6 @@
     <None Include="Resources\cloud.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\kill.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\kill1.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\kill %282%29.gif" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Sound_1.wav" />
   </ItemGroup>
   <ItemGroup>
@@ -117,6 +108,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cursor2a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gelic.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kill %282%29.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

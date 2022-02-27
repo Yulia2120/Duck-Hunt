@@ -33,18 +33,17 @@ namespace Duck_Hunt
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.l_kill = new System.Windows.Forms.Label();
             this.l_missed = new System.Windows.Forms.Label();
             this.l_over = new System.Windows.Forms.Label();
+            this.l_coin = new System.Windows.Forms.Label();
+            this.l_shop = new System.Windows.Forms.Label();
+            this.b_Buy = new System.Windows.Forms.Button();
             this.p_cloud = new System.Windows.Forms.PictureBox();
             this.p_3 = new System.Windows.Forms.PictureBox();
             this.p_2 = new System.Windows.Forms.PictureBox();
             this.p_1 = new System.Windows.Forms.PictureBox();
-            this.l_coin = new System.Windows.Forms.Label();
-            this.l_shop = new System.Windows.Forms.Label();
-            this.b_Buy = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.p_cloud)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p_3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p_2)).BeginInit();
@@ -88,6 +87,41 @@ namespace Duck_Hunt
             this.l_over.TabIndex = 5;
             this.l_over.Text = "Game - Over!";
             // 
+            // l_coin
+            // 
+            this.l_coin.AutoSize = true;
+            this.l_coin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.l_coin.Location = new System.Drawing.Point(542, 9);
+            this.l_coin.Name = "l_coin";
+            this.l_coin.Size = new System.Drawing.Size(62, 18);
+            this.l_coin.TabIndex = 4;
+            this.l_coin.Text = "Coin: 0";
+            // 
+            // l_shop
+            // 
+            this.l_shop.AutoSize = true;
+            this.l_shop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.l_shop.Location = new System.Drawing.Point(441, 34);
+            this.l_shop.Name = "l_shop";
+            this.l_shop.Size = new System.Drawing.Size(173, 30);
+            this.l_shop.TabIndex = 6;
+            this.l_shop.Text = "Telescopic sight: 30 coins\r\n ";
+            // 
+            // b_Buy
+            // 
+            this.b_Buy.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.b_Buy.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.b_Buy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.b_Buy.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.b_Buy.ForeColor = System.Drawing.Color.Red;
+            this.b_Buy.Location = new System.Drawing.Point(498, 69);
+            this.b_Buy.Name = "b_Buy";
+            this.b_Buy.Size = new System.Drawing.Size(75, 23);
+            this.b_Buy.TabIndex = 7;
+            this.b_Buy.Text = "Buy";
+            this.b_Buy.UseVisualStyleBackColor = true;
+            this.b_Buy.Click += new System.EventHandler(this.b_Buy_Click);
+            // 
             // p_cloud
             // 
             this.p_cloud.BackColor = System.Drawing.Color.Transparent;
@@ -126,7 +160,7 @@ namespace Duck_Hunt
             // p_1
             // 
             this.p_1.BackColor = System.Drawing.Color.Transparent;
-            this.p_1.Image = ((System.Drawing.Image)(resources.GetObject("p_1.Image")));
+            this.p_1.Image = global::Duck_Hunt.Properties.Resources.bird_1;
             this.p_1.Location = new System.Drawing.Point(42, 70);
             this.p_1.Name = "p_1";
             this.p_1.Size = new System.Drawing.Size(117, 90);
@@ -134,41 +168,6 @@ namespace Duck_Hunt
             this.p_1.TabIndex = 0;
             this.p_1.TabStop = false;
             this.p_1.Click += new System.EventHandler(this.p_1_Click);
-            // 
-            // l_coin
-            // 
-            this.l_coin.AutoSize = true;
-            this.l_coin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.l_coin.Location = new System.Drawing.Point(542, 9);
-            this.l_coin.Name = "l_coin";
-            this.l_coin.Size = new System.Drawing.Size(62, 18);
-            this.l_coin.TabIndex = 4;
-            this.l_coin.Text = "Coin: 0";
-            // 
-            // l_shop
-            // 
-            this.l_shop.AutoSize = true;
-            this.l_shop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.l_shop.Location = new System.Drawing.Point(441, 34);
-            this.l_shop.Name = "l_shop";
-            this.l_shop.Size = new System.Drawing.Size(173, 30);
-            this.l_shop.TabIndex = 6;
-            this.l_shop.Text = "Telescopic sight: 30 coins\r\n ";
-            // 
-            // b_Buy
-            // 
-            this.b_Buy.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.b_Buy.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.b_Buy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.b_Buy.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b_Buy.ForeColor = System.Drawing.Color.Red;
-            this.b_Buy.Location = new System.Drawing.Point(498, 69);
-            this.b_Buy.Name = "b_Buy";
-            this.b_Buy.Size = new System.Drawing.Size(75, 23);
-            this.b_Buy.TabIndex = 7;
-            this.b_Buy.Text = "Buy";
-            this.b_Buy.UseVisualStyleBackColor = true;
-            this.b_Buy.Click += new System.EventHandler(this.b_Buy_Click);
             // 
             // Form1
             // 

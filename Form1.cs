@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-
+using System.Drawing.Imaging;
 
 namespace Duck_Hunt
 {
@@ -22,7 +22,7 @@ namespace Duck_Hunt
         string[] textR = { "Wow!", "Killed!", "Whoo!", "Killed!" };
         Font font = new Font("Arial", 14);
         SolidBrush exbrush = new SolidBrush(Color.Red);
-        int speed = 5;
+        int speed = 6;
         int kill, missed, coin;
       
      
@@ -92,10 +92,6 @@ namespace Duck_Hunt
             p_2.Left -= speed;
             p_3.Left -= speed;
           
-          //if (p_1.Bounds.IntersectsWith(g.VisibleClipBounds))
-          //  {
-
-          //  }
         }
 
         private void Sound()
@@ -109,6 +105,7 @@ namespace Duck_Hunt
         {
             Birds();
             GameResult();
+            MakeScreenshot();
         }
         private void p_1_Click(object sender, EventArgs e)
         {
@@ -121,6 +118,7 @@ namespace Duck_Hunt
                 l_shop.Visible = true;
                 b_Buy.Visible = true;
             }
+           
             p_1.Image = Properties.Resources.kill;
             Sound();
         }
@@ -151,6 +149,7 @@ namespace Duck_Hunt
                 l_shop.Visible = true;
                 b_Buy.Visible = true;
             }
+          
             p_3.Image = Properties.Resources.kill;
             Sound();
         }
@@ -159,6 +158,7 @@ namespace Duck_Hunt
             Bitmap bmp = new Bitmap(Properties.Resources.cursor2a);
             Cursor crs = new Cursor(bmp.GetHicon());
             this.Cursor = crs;
+            l_coin.Text = "Coin: " + (coin - 30);
             l_shop.Visible = false;
             b_Buy.Visible = false;
 
@@ -169,8 +169,6 @@ namespace Duck_Hunt
             {
                 l_over.Visible = true;
                 timer1.Stop();
-                l_missed.Visible = false;
-                l_kill.Visible = false;
             }
             if(l_kill.Text == "Killed: 50")
             {
@@ -180,6 +178,18 @@ namespace Duck_Hunt
             }
         }
 
+        private void MakeScreenshot()
+        {
+            Rectangle bounds = new Rectangle(Location.X, Location.Y, ClientSize.Width, ClientSize.Height); 
+            using (var bitmap = new Bitmap(bounds.Width, bounds.Height))
+            {
+                using (var g = Graphics.FromImage(bitmap))
+                {
+                    g.CopyFromScreen(Location, Point.Empty, bounds.Size);
+                }
+                bitmap.Save("GameOver.jpg", ImageFormat.Jpeg);
+            }
+        }
         //if (pictureBox1.Bounds.IntersectsWith(item.Bounds))
     }
 }
